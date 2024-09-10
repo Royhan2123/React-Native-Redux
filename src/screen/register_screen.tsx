@@ -1,16 +1,17 @@
 /* eslint-disable react-native/no-inline-styles */
+/* eslint-disable react/react-in-jsx-scope */
+import {CommonActions, useNavigation} from '@react-navigation/native';
+import {useState} from 'react';
 import {
   StyleSheet,
   Text,
   TextInput,
-  View,
   TouchableOpacity,
+  View,
 } from 'react-native';
 
-import React, {useState} from 'react';
-import {CommonActions, useNavigation} from '@react-navigation/native';
-
-const LoginScreen = () => {
+const RegisterScreen = () => {
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isPasswordVisible] = useState(false);
@@ -23,60 +24,64 @@ const LoginScreen = () => {
           color: 'black',
           marginBottom: 20,
         }}>
-        Login Your Account
+        Register Your Account
       </Text>
-      <View style={style.cardLogin}>
+      <View style={style.cardRegister}>
         <View
           style={{
             flexDirection: 'column',
             padding: 20,
             justifyContent: 'flex-start',
           }}>
+          <Text style={style.texts}>Name</Text>
+          <TextInput
+            style={style.inputText}
+            value={name}
+            onChangeText={setName}
+            placeholder="enter your name"
+            placeholderTextColor="grey"
+            keyboardType="default"
+          />
           <Text style={style.texts}>Email</Text>
           <TextInput
             style={style.inputText}
-            placeholder="name@example.com"
             value={email}
             onChangeText={setEmail}
-            keyboardType="email-address"
+            placeholder="name@example.com"
             placeholderTextColor="grey"
+            keyboardType="email-address"
           />
           <Text style={style.texts}>Password</Text>
           <TextInput
             style={style.inputText}
-            placeholder="Enter Your password"
             value={password}
             onChangeText={setPassword}
+            placeholder="enter your password"
             placeholderTextColor="grey"
             secureTextEntry={!isPasswordVisible}
           />
-          <View
-            style={{
-              alignItems: 'center',
-              justifyContent: 'center',
-              marginTop: 20,
-            }}>
-            <TouchableOpacity
-              style={style.button}
-              onPress={() => {
-                navigation.dispatch((
-                  CommonActions.reset({
-                    index: 0,
-                    routes: [{
+          <TouchableOpacity
+            style={style.button}
+            onPress={() => {
+              navigation.dispatch(
+                CommonActions.reset({
+                  index: 0,
+                  routes: [
+                    {
                       name: 'Home',
-                    }],
-                  })
-                ));
+                    },
+                  ],
+                }),
+              );
+            }}>
+            <Text
+              style={{
+                color: 'white',
+                fontSize: 15,
               }}>
-              <Text
-                style={{
-                  color: 'white',
-                  fontSize: 15,
-                }}>
-                Login
-              </Text>
-            </TouchableOpacity>
-          </View>
+              Register
+            </Text>
+          </TouchableOpacity>
         </View>
       </View>
       <View
@@ -92,15 +97,18 @@ const LoginScreen = () => {
             fontSize: 16,
             marginEnd: 10,
           }}>
-          don't have account?
+          already have account
         </Text>
-        <TouchableOpacity onPress={() => navigation.navigate('Register')}>
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate('Login');
+          }}>
           <Text
             style={{
               color: 'blue',
               fontSize: 16,
             }}>
-            SignUp
+            SignIn
           </Text>
         </TouchableOpacity>
       </View>
@@ -115,7 +123,7 @@ const style = StyleSheet.create({
     padding: 20,
     justifyContent: 'center',
   },
-  cardLogin: {
+  cardRegister: {
     width: '100%',
     borderRadius: 15,
     backgroundColor: 'white',
@@ -147,7 +155,8 @@ const style = StyleSheet.create({
     elevation: 5,
     justifyContent: 'center',
     alignItems: 'center',
+    marginTop: 10,
   },
 });
 
-export default LoginScreen;
+export default RegisterScreen;
