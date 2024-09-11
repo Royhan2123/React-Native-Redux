@@ -2,9 +2,9 @@
 /* eslint-disable react/no-unstable-nested-components */
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import React from 'react';
-import HomeScreen from '../MainContent/home_screen';
-import SearchScreen from '../MainContent/search_screen';
-import AccountScreen from '../MainContent/account_screen';
+import HomeScreen from '../main_content/home_screen';
+import SearchScreen from '../main_content/search_screen';
+import AccountScreen from '../main_content/account_screen';
 import {Image, Text} from 'react-native';
 
 const BottomNavigation = () => {

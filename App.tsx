@@ -4,7 +4,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import React from 'react';
 import LoginScreen from './src/screen/login_screen';
 import RegisterScreen from './src/screen/register_screen';
-import BottomNavigation from './src/screen/HalamanBottom/bottom_navigation';
+import BottomNavigation from './src/screen/halaman_bottom/bottom_navigation';
 
 const App = () => {
   const Stack = createNativeStackNavigator();
