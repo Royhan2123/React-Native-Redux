@@ -68,7 +68,7 @@ const RegisterScreen = () => {
                   index: 0,
                   routes: [
                     {
-                      name: 'Home',
+                      name: 'BottomNavigation',
                     },
                   ],
                 }),
@@ -101,7 +101,7 @@ const RegisterScreen = () => {
         </Text>
         <TouchableOpacity
           onPress={() => {
-            navigation.navigate('Login');
+            navigation.navigate('LoginScreen');
           }}>
           <Text
             style={{

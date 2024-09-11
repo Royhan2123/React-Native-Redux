@@ -94,7 +94,7 @@ const LoginScreen = () => {
           }}>
           don't have account?
         </Text>
-        <TouchableOpacity onPress={() => navigation.navigate('Register')}>
+        <TouchableOpacity onPress={() => navigation.navigate('RegisterScreen')}>
           <Text
             style={{
               color: 'blue',
