@@ -107,6 +107,13 @@ android {
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }
     }
+
+    // Add the following block to configure vector icons
+    sourceSets {
+        main {
+            res.srcDirs += 'src/main/res/fonts'
+        }
+    }
 }
 
 dependencies {
@@ -118,4 +125,5 @@ dependencies {
     } else {
         implementation jscFlavor
     }
+     implementation 'com.github.react-native-vector-icons:react-native-vector-icons:9.2.0'
 }

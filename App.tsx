@@ -4,6 +4,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import React from 'react';
 import LoginScreen from './src/screen/login_screen';
 import RegisterScreen from './src/screen/register_screen';
+import BottomNavigation from './src/screen/HalamanBottom/bottom_navigation';
 
 const App = () => {
   const Stack = createNativeStackNavigator();
@@ -23,6 +24,11 @@ const App = () => {
         <Stack.Screen
           name="RegisterScreen"
           component={RegisterScreen}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="BottomNavigation"
+          component={BottomNavigation}
           options={{headerShown: false}}
         />
       </Stack.Navigator>

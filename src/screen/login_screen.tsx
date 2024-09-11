@@ -63,7 +63,7 @@ const LoginScreen = () => {
                   CommonActions.reset({
                     index: 0,
                     routes: [{
-                      name: 'Home',
+                      name: 'BottomNavigation',
                     }],
                   })
                 ));
